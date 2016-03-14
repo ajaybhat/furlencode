@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NightOwl - Owl's Nest</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/index.css" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active" style="padding-top:20px"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <img src="/static/owl_icon.png" style="position: relative;right: 90px;left: 20px;padding: 0px"/>
+
+        <h3 class="text-muted" style="display: inline-block; position: relative;left: 40px">Owl's Nest</h3>
+    </div>
+
+    <div class="jumbotron" style="border: 10px">
+        {{ places.get }}
+        {% for place in places %}
+            <div class=".well"
+                 style="background-color: white;text-align: left;align-items: flex-start;border:30px;border-radius: 10px">
+                <h3 class="list-group" style="margin: 20px;border-top:60px;padding: 20px">{{ place.name }}</h3>
+
+                <img src="/static/pics/{{ place.place_id }}.png" class="pull-right"
+                     style="position:relative;bottom:60px;right:40px;display: compact"/>
+
+                <p style="position: relative;bottom:20px;left:30px;font-size: 16px">{{ place.description }}</p>
+                <p/>
+
+                <h5 class="active"
+                    style="margin:10px;padding: 6px; border-radius:25px;background-color: indigo;display:inline;color: white;">
+                    <b>{{ place.category }}</b></h5>
+
+                <div class="pull-right" style="position:relative;left:50px; ">
+                    <b>{{ place.from }} </b>to<b> {{ place.to }}</b>
+
+                    <p/>
+                </div>
+
+                <button type="button" class="btn btn-info pull-center"
+                        style="margin:5px;width: 80px;height: 30px;font-size: 15px;text-align: center;padding:0px"
+                        onclick="location.href='http://www.google.com/maps?q={{ place.latitude }},{{ place.longitude }}&hl=en&gl=gb'">
+                    Location
+                </button>
+
+                <button type="button" class="btn btn-success pull-center"
+                        style="margin:5px;width: 80px;height: 30px;font-size: 15px;text-align: center;padding:0px"
+                        onclick="location.href='/goodPlace?place_id={{ place.place_id }}'">
+                    Good :)
+                </button>
+                <button type="button" class="btn btn-danger pull-center"
+                        style="margin:5px;width: 80px;height: 30px;font-size: 15px;text-align: center;padding: 0px"
+                        onclick="location.href='/badPlace?place_id={{ place.place_id }}'">
+                    Bad >:(
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <footer class="footer">
+        <p>&copy; iostream.h 2016</p>
+    </footer>
+
+</div>
+</body>
+</html>
+

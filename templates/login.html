@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NightOwl - Admin Login</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/index.css" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+    <script src="../static/js/signIn.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>NightOwl - Admin Console</h2>
+
+        <form class="form-signin" action="/validateLogin" method="post">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address"
+                   required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password"
+                   required>
+
+            <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+
+
+    <footer class="footer">
+        <p>&copy; iostream.h 2016</p>
+    </footer>
+
+</div>
+</body>
+</html>
+
